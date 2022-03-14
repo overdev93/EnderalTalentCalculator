@@ -1,5 +1,4 @@
 # EnderalTalentCalculator
-Enderal Talent Calculator
 
 A tool to plan your character build in the mod / game "Enderal"
 
