@@ -1,7 +1,7 @@
 #graphicElements{
   height: 540px;
   width: 600px;
-  background-image: url("warrior.gif");
+  background-image: url("images/warrior.gif");
   background-repeat: no-repeat;
   background-color: rgb(132,132,132);
   position: absolute;
@@ -33,6 +33,9 @@ img {
     margin: 5px;
 }
 
+text{
+  position: relative;
+}
 
 input {
   width: 50px;

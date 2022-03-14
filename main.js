@@ -27,7 +27,8 @@ function checkingSelectedClassDropdownMenu()
 function ChangeBackgroundImage()
 {
   var doc = document.getElementById('graphicElements');
-  doc.style.backgroundImage = 'url('+dropdownClassMenuRead+'.gif)';
+  let imagesFolder ='images/';
+  doc.style.backgroundImage = 'url(imagesFolder + '+dropdownClassMenuRead+'.gif)';
 }
 
 
@@ -40,12 +41,17 @@ function GenerateCircles(dataset)
     rect = document.createElementNS(svg_embed, 'rect');
     rect.setAttribute('id', "rectTooltip");
     rect.setAttribute('height', 200);
-    rect.setAttribute('width', 150);
+    rect.setAttribute('width', 700);
 
-    txt  = document.createElementNS(svg_embed, 'text');
-    txt.setAttribute('id', 'textToolTip');
-    txt.setAttribute('height', 200);
-    txt.setAttribute('width', 150);
+    txtName  = document.createElementNS(svg_embed, 'text');
+    txtName.setAttribute('id', 'textToolTipName');
+    txtName.setAttribute('height', 20);
+    txtName.setAttribute('width', 200);
+
+    txtDescription  = document.createElementNS(svg_embed, 'text');
+    txtDescription.setAttribute('id', 'textToolTipDescription');
+    txtDescription.setAttribute('height', 20);
+    txtDescription.setAttribute('width', 200);
 
     for(var i = 0; i < dataset.length; i++)
     {
@@ -69,36 +75,41 @@ function GenerateCircles(dataset)
 
           circles[i].addEventListener("mouseenter", function () {
 
-            txt.setAttribute('x', constCoordX + 10);
-            txt.setAttribute('y', constCoordY + 15);
-            txt.innerHTML = memoryName + "<br />" + memoryDescription; //  LINEBREAK DOESNT WORK????
+            txtName.setAttribute('x', constCoordX + 10);
+            txtName.setAttribute('y', constCoordY + 20);
+            txtName.setAttribute('font-size', 20);
+            txtName.setAttribute('text-decoration', 'underline');
+            txtName.innerHTML = memoryName;
+
+            txtDescription.setAttribute('x', constCoordX + 10);
+            txtDescription.setAttribute('y', constCoordY+ 50);
+            txtDescription.innerHTML = memoryDescription;
 
             tTip = document.getElementById('rectTooltip');
             tTip.setAttribute('x', constCoordX);
             tTip.setAttribute('y', constCoordY);
 
             rect.style.visibility = "visible";
-            txt.style.visibility = "visible";
-
+            txtName.style.visibility = "visible";
+            txtDescription.style.visibility = "visible";
           });
 
           circles[i].addEventListener("mouseout", function () {
 
             rect.style.visibility = "hidden";
-            txt.style.visibility = "hidden";
+            txtName.style.visibility = "hidden";
+            txtDescription.style.visibility = "hidden";
 
           });
           rect.style.visibility = "hidden";
-          txt.style.visibility = "hidden";
+          txtName.style.visibility = "hidden";
+          txtDescription.style.visibility = "hidden";
     }
 
     document.getElementById('svgsection').appendChild(rect);
-    document.getElementById('svgsection').appendChild(txt);
-
-
-
+    document.getElementById('svgsection').appendChild(txtName);
+    document.getElementById('svgsection').appendChild(txtDescription);
 }
-
 
 
 function circleChange(crl)
