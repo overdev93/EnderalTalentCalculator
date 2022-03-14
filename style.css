@@ -1,0 +1,52 @@
+#graphicElements{
+  height: 540px;
+  width: 600px;
+  background-image: url("warrior.gif");
+  background-repeat: no-repeat;
+  background-color: rgb(132,132,132);
+  position: absolute;
+
+
+}
+
+rect {
+    position: absolute;
+    fill: white;
+    fill-opacity: 0.5;
+}
+circle {
+  fill: red;
+  fill-opacity: 0.2;
+  stroke: darkgrey;
+  stroke-width: 3px;
+}
+
+
+
+body{
+  background-color: rgb(132,132,132);
+  position: absolute;
+}
+
+img {
+  width: 20px;
+    margin: 5px;
+}
+
+
+input {
+  width: 50px;
+}
+
+#talentpointsText{
+
+  display: inline-block;
+}
+
+#talentpointsTextbox{
+  display: inline-block;
+}
+
+#dropdownClasses{
+  display: block;
+}
