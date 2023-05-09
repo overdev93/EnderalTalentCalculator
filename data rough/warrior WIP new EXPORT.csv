@@ -1,0 +1,53 @@
+ID,coordx,coordy,name,description,tierone,tiertwo,tierthree,type
+0,307,448,Tempest,This memory unlocks all warrior disciplines for you. It also reduces the weight of heavy armor by 10% and grants you the talent Rage which raises your weapon damage for a short time,Tier 1: 7 seconds duration,Tier 2: 11 seconds duration,Tier 3: 15 seconds duration,Talent
+1,195,417,Barbarian,The memories of the Vandal improve your handling of two-handed weapons.,"Tier 1: Two-handed weapons do 12% more damage
+",Tier 2: Two-handed weapons do another 10% more damage,,Passive
+2,203,382,Bloodthirst,Raises your attacking speed with two-handed weapons.,"Tier 1: 13% faster attacking speed
+",Tier 2: Another 10% faster attacking speed,,Passive
+3,187,353,Amputator,Attacks with battleaxes do more additional bleed damage.,,,,Passive
+4,209,343,Deep Wounds,Attacks with greatswords have a chance of 10% to do more critical damage.,,,,Passive
+5,233,343,Brachial,Attacks with warhammers ignore 30% of armor rating.,,,,Passive
+6,187,305,Skaraggian Stance,"Increases damage and power of your blows and shield bashes, but also the damage you take yourself. Cannot be stacked with other combat stances.","Tier 1: 10% more damage, 50% more power, 40% less damage resistance
+
+","Tier 2: 15% more damage, 100% more power, 30% less damage resistance","Tier 3: 20% more damage, 200% more power, 20% less damage resistance",Talent
+7,138,295,Fury-Driven,Grants you a steady Health regeneration while you are fighting with a two-handed weapon.,,,,Passive
+8,165,281,Hawk Thrust,"If you are performing a power attack with a two-handed weapon while sprinting, you deal a critical hit which doubles the damage.",,,,Passive
+9,187,266,Unwavering,A backwards power attack has a chance of 10% to paralyze the target.,,,,Passive
+10,146,255,Warrior Stance,Reduces the Stamina cost of power attacks.,"Tier 1: 18% cost reduction
+",Tier 2: Another 15% cost reduction,,Passive
+11,138,221,Precise Blow,Doubles the recoil of a hit on the enemy when your Stamina is above 50%,,,,Passive
+12,119,179,Sweeping Blow,"If you are performing a sideways power attacks with two-handed weapons, you will hit all targets in front of you.",,,,Passive
+13,135,176,Archaic Might,Discharges your power in a shockwave which staggers enemies and does high damage to them. Staggering enemies are taking additional damage.,"Tier 1: Deals 55 points of damage, staggering enemies take additional 35 points
+","Tier 2: Deals 75 points of damage, staggering enemies take additional 55 points","Tier 3: Deals 100 points of damage, staggering enemies take additional 75 points",Talent
+14,152,183,Merciless,Power attacks while standing still do 20% additional damage and can decapitate enemies.,,,,Passive
+15,150,131,Brute Blow,Blocking enemies now take 40% more damage from your attacks.,,,,Passive
+16,307,414,Juggernaut,"The memories of the ‚Keeper‘ improve the effect of the defensive techniques like blocking or heavy armor, as well as anything that raises your resistance in battle.",Tier 1: Heavy armor is 15% more effective,Tier 2: Heavy armor is another 12% more effective,,Passive
+17,307,387,Shield Wall,,Tier 1: Blocking is 15% more effective,Tier 2: Blocking is another 12% more effective,,Passive
+18,288,357,Arrow Wall,Arrows you intercept with your shield won’t do any damage from now on,,,,Passive
+19,308,362,Firm State,When you are soley wearing heaby armor the chance that your enemies make you stagger with their attacks is lowered.,,,,Passive
+20,331,361,Splinted Limbs,If you are soley wearing heaby armor the falling damage you take is halved.,,,,Passive
+21,308,329,Tower of Strength,Makes you nearly invulnerable to physical damage for a short time.,"Tier 1: 75% Damage Reduction, 6 Seconds","Tier 2: 85% Damage Reduction, 6 Seconds","Tier 3: 95% Damage Reduction, 6 Seconds",Talent
+22,286,279,Shield Runner,You can move faster with a shield raised.,,,,Passive
+23,309,288,Shield Stroke,If you are bashing an enemy with your shield there is a 15% chance to disarm them.,,,,Passive
+24,336,280,Conditioning,Heavy Armor now slows you down less and weights only half as much as before.,,,,Passive
+25,310,233,Reververate Attacks,If you are soley wearing heaby armor there is a small chance that you reflect taken melee damage back to your enemies.,Tier 1: 5% chance to reflect melee damage,Tier 2: Another 5% chance to reflect melee damage,,Passive
+26,309,179,Iron Will,When you are soley wearing heavy armor the magic damage dealt to you is reduced by 15%. Also the chance to make you stagger is lowered if you are wearing solely heavy armor and your Stamina bar is at least half-filled.,,,,Passive
+27,245,158,Exhaujtion,Bashing an enemy with a shield absorbs a part of their Stamina.,,,,Passive
+28,380,159,Fast Reflexes,Time slows down if you are blocking during an enemy’s power attack.,,,,Passive
+29,308,138,Iron Maiden,For a short period of time you throw all taken melee damage back to your enemies.,Tier 1: 5 seconds duration,Tier 2: 7 seconds duration,Tier 3: 9 seconds duration,Talent
+30,306,102,Steadfast,Blocking and heavy armor is 5% more effective when your Stamina is half-filled. Furthermore the time slows down when your Health falls to less than 15%.,,,,Passive
+31,422,412,Mercenary,The memories of the Blade Dancer improve your skill in using one or two one-handed weapons.,Tier 1: Increases one-handed damage by 8%,Tier 2: Increases one-handed damage by another 7%,,Passive
+32,417,378,Relentless Strike,Power attacks with one-handed weapons consume 25% less Stamina.,,,,Passive
+33,394,349,Carnage,Attacks with one-handed axes do additional bleeding damage.,,,,Passive
+34,417,346,Bone Breaker,Attacks with maces ignore 40% of the enemy armor rating.,,,,Passive
+35,441,350,Blade Master,"Attacks with one-handed swords have a chance of 10% to do additional, critical damage.",,,,Passive
+36,416,314,Qyranian Stance,"Increases attacking and moving speed, but lowers your ability to block. Enemies also land critical hits easier. Cannot be stacked with other stances.","Tier 1: 10% increased attacking and moving speed, 45% decreased blocking, 30% higher critical hit chance for enemies","Tier 2: 15% increased attacking and moving speed, 35% decreased blocking, 20% higher critical hit chance for enemies","Tier 3: 20% increased attacking and moving speed, 20% decreased blocking, 10% higher critical hit chance for enemies",Talent
+37,437,270,Vortex Blades,Attacks with two one-handed weapons are 15% faster.,,,,Passive
+38,474,292,Bypass Defenses,Increases your chance to land a critical hit on a blocking enemy by 15%,,,,Passive
+39,447,313,Critical Hit,,Tier 1: When attacking with an one-handed weapon your critical hit damage increases by 20%,Tier 2: When attacking with an one-handed weapon your critical hit damage increases by another 20%,,Passive
+40,486,267,Sprint Thrust,"Allows you to perform a powerful attack while sprinting, which does double critical damage",,,,Passive
+41,494,229,Calm Hand,"If your Stamina is higher than 50%, your critical hit chance is increased by 8%.",,,,Passive
+42,473,207,Double Vortices,,Tier 1: Power attacks with 2 one-handed weapons do 12% more damage,Tier 2: Power attacks with 2 one-handed weapons do another 10% more damage,,Passive
+43,499,195,Blade Dance,"If you hit an enemy 5 times within 10 seconds after using this talent, the last hit does additional damage and staggers that enemy.",Tier 1: Deals 35 points additional damage,Tier 2: Deals 55 points additional damage,Tier 3: Deals 75 points additional damage,Talent
+44,513,219,Savage Blow,Power attacks with one-handed weapons while standing still do 15% more damage and can decapitate your enemies,,,,Passive
+45,496,150,Stunning Blow,A backwards power-attack with an one-handed sword has a chance of 25% to paralyze the target.,,,,Passive

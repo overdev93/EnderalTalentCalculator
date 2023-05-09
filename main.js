@@ -1,118 +1,348 @@
-
-
-var dropdownClassMenu = document.getElementById('dropdownClasses')
+var dropdownMenu = document.getElementById('dropdownClasses');
 var dropdownClassMenuRead;
+const svg_embed = "http://www.w3.org/2000/svg";
+
+var svgSection = document.getElementById('svgsection');
+var dropdownPreviousValue;
+
+var currentInputData;
+var DataName;
+
+var selectClass;
+
+var svgCircles =[];
+
 
 checkingSelectedClassDropdownMenu();
-ChangeBackgroundImage();
-GenerateCircles(warriorVandalData);
+GenerateSvgCircles(warriorData, "warrior");
+GenerateSvgCircles(mageData , "mage");
+HideCircles();
+
 
 // executes when class drop down menu is changed
-dropdownClassMenu.addEventListener('change',
-
-function()
+dropdownMenu.addEventListener('click', function()
     {
-        checkingSelectedClassDropdownMenu();
-        ChangeBackgroundImage();
+      dropdownPreviousValue = dropdownMenu.value;
+      checkingSelectedClassDropdownMenu();
+    }
+);
+
+dropdownMenu.addEventListener('change', function()
+    {
+      checkingSelectedClassDropdownMenu();
+      ChangeBackgroundImage();
+      HideCircles();
     }
 );
 
 
+// FUNCTIONS
+
 function checkingSelectedClassDropdownMenu()
 {
-  dropdownClassMenuRead = dropdownClassMenu.options[dropdownClassMenu.selectedIndex].text;
+  switch (dropdownMenu.value) 
+  {
+    case "warrior":
+      currentInputData = warriorData;
+      DataName = "warrior";
+      break;
+    case "mage":
+      currentInputData = mageData;
+      DataName = "mage";
+      break;
+    case "rogue":
+      currentInputData = rogueData;
+      break;
+    case "phasmalist":
+      currentInputData = phasmalistData;
+      break;
+    case "lycanthrope":
+      currentInputData = lycanthropeData;
+      break;
+  }
+
+  dropdownClassMenuRead = dropdownMenu.value;
 }
 
 // changes the background according to the class dropdown menu
 function ChangeBackgroundImage()
 {
+  checkingSelectedClassDropdownMenu();
   var doc = document.getElementById('graphicElements');
-  let imagesFolder ='images/';
-  doc.style.backgroundImage = 'url(imagesFolder + '+dropdownClassMenuRead+'.gif)';
+  doc.style.backgroundImage = "url('images/" + dropdownClassMenuRead + ".gif')";
+  
+  
 }
 
 
-function GenerateCircles(dataset)
+
+function HideCircles()
+{ 
+ 
+  var selectWarrior = document.getElementsByClassName(dropdownMenu[0].value);
+  var selectMage = document.getElementsByClassName(dropdownMenu[1].value);
+  var selectRogue = document.getElementsByClassName(dropdownMenu[2].value);
+  var selectPhasmalist = document.getElementsByClassName(dropdownMenu[3].value);
+  var selectLycanthrope = document.getElementsByClassName(dropdownMenu[4].value);
+
+  checkingSelectedClassDropdownMenu();
+
+  //console.log(dropdownMenu[0].value.length);
+
+
+  switch(dropdownMenu.value) {  
+    case "warrior":
+      for(let i = 0; i < selectWarrior.length; i++) {
+        selectWarrior[i].style.visibility = "visible";
+        
+      }
+      for(let i = 0; i < selectMage.length; i++) {
+        selectMage[i].style.visibility = "hidden";
+       
+      }
+      break;
+
+    case "mage":
+      for(let i = 0; i < selectWarrior.length; i++) {
+        selectWarrior[i].style.visibility = "hidden";
+       
+      }
+      for(let i = 0; i < selectMage.length; i++) {
+        selectMage[i].style.visibility = "visible";
+        
+      }
+      break;
+  }
+   
+   
+}
+
+
+
+function GenerateSvgCircles(classDataset, classname)
 {
-
-    let svg_embed = "http://www.w3.org/2000/svg";
-    let circles =[];
-
-    rect = document.createElementNS(svg_embed, 'rect');
-    rect.setAttribute('id', "rectTooltip");
-    rect.setAttribute('height', 200);
-    rect.setAttribute('width', 700);
-
-    txtName  = document.createElementNS(svg_embed, 'text');
-    txtName.setAttribute('id', 'textToolTipName');
-    txtName.setAttribute('height', 20);
-    txtName.setAttribute('width', 200);
-
-    txtDescription  = document.createElementNS(svg_embed, 'text');
-    txtDescription.setAttribute('id', 'textToolTipDescription');
-    txtDescription.setAttribute('height', 20);
-    txtDescription.setAttribute('width', 200);
-
-    for(var i = 0; i < dataset.length; i++)
+    
+    for(var i = 0; i < classDataset.length; i++)
     {
-          circles[i] = document.createElementNS(svg_embed, 'circle');
-          const id = warriorVandalName + '_' + dataset[i].id;
-          const memoryName = warriorVandalData[i].name;
-          const memoryDescription = warriorVandalData[i].description;
+          svgCircles[i] = document.createElementNS(svg_embed, 'circle');
+          const id = classDataset[i].ID; ;
+          const memoryName = classDataset[i].name;
+          const memoryDescription = classDataset[i].description;
+          const memoryTierOne = classDataset[i].tierone;
+          const memoryTierTwo = classDataset[i].tiertwo;
+          const memoryTierThree = classDataset[i].tierthree;
+          const memoryUnlockLevel = classDataset[i].unlocklevel;
 
-          const constCoordX = dataset[i].coordx;
-          const constCoordY = dataset[i].coordy;
+          
+          svgCircles[i].setAttribute('id', classname + '_' + classDataset[i].ID);
+          svgCircles[i].setAttribute('class', classname);          
+          svgCircles[i].setAttribute('cx', classDataset[i].coordx);
+          svgCircles[i].setAttribute('cy', classDataset[i].coordy);
+          svgCircles[i].setAttribute('r', 9);
+          svgCircles[i].setAttribute('value', 0);
+          
+          
 
-          circles[i].setAttribute('id', id);
-          circles[i].setAttribute('cx', dataset[i].coordx);
-          circles[i].setAttribute('cy', dataset[i].coordy);
-          circles[i].setAttribute('r', 7);
+          document.getElementById('svgsection').appendChild(svgCircles[i]);
 
-          document.getElementById('svgsection').appendChild(circles[i])
+              // different colors for the circles and stroke, depending if it's active or not
+              const circleFillColorWhenActive = 'rgb(77, 151, 214)';
+              const circleStrokeColorWhenActive = 'rgb(148, 206, 255)';
+              const circleStrokeColorWhenHighlighted = 'rgb(189, 224, 253)';
+              const circleFillColorWhenInactive = 'darkgray';
 
-          let currentCoordX = dataset[i].coordx;
-          let currentCoordY = dataset[i].coordy;
+            
+              // event listeners for circles
 
-          circles[i].addEventListener("mouseenter", function () {
+              svgCircles[i].addEventListener("mouseenter", function () {
 
-            txtName.setAttribute('x', constCoordX + 10);
-            txtName.setAttribute('y', constCoordY + 20);
-            txtName.setAttribute('font-size', 20);
-            txtName.setAttribute('text-decoration', 'underline');
-            txtName.innerHTML = memoryName;
+                // changes circle size and color + disables the border of the tooltipbox
+                this.setAttribute('r', 11);
+                this.style.stroke = circleStrokeColorWhenHighlighted;
+                
+                // changes the background color of the text in the tooltipbox and adds the text to the html
+                const toolTipText = document.getElementById('toolTipText');
+                  
+                toolTipText.style.backgroundColor = 'rgb(187, 187, 187)';
+                toolTipText.innerHTML = memoryName;
 
-            txtDescription.setAttribute('x', constCoordX + 10);
-            txtDescription.setAttribute('y', constCoordY+ 50);
-            txtDescription.innerHTML = memoryDescription;
+                if(this.style.fill == circleFillColorWhenActive)
+                {
+                  toolTipText.style.color = 'black';
+                  this.style.strokeWidth = '3px';
+                  
+                  toolTipBox.style.border = 'solid black';
+                  
+                  this.style.fillOpacity = 0.5;
+                }
+                else
+                {
+                  toolTipText.style.color = 'rgb(83, 83, 83)';
+                  toolTipBox.style.border = 'none';
+                }
 
-            tTip = document.getElementById('rectTooltip');
-            tTip.setAttribute('x', constCoordX);
-            tTip.setAttribute('y', constCoordY);
+                  
+                  
 
-            rect.style.visibility = "visible";
-            txtName.style.visibility = "visible";
-            txtDescription.style.visibility = "visible";
-          });
+                  
+                  // if the different elements have text then it will be added to the textbox
+                  if(memoryDescription.length > 0)
+                  {
+                    toolTipText.innerHTML += "<br><br>" + memoryDescription;
+                  }
+                  if(memoryTierOne.length > 0)
+                  {
+                    toolTipText.innerHTML += "<br><br>" + memoryTierOne;
+                  }
+                  if(memoryTierTwo.length > 0)
+                  {
+                    toolTipText.innerHTML += "<br>" + memoryTierTwo;
+                  }
+                  if(memoryTierThree.length > 0)
+                  {
+                    toolTipText.innerHTML += "<br>" + memoryTierThree;
+                  }
 
-          circles[i].addEventListener("mouseout", function () {
+              })
 
-            rect.style.visibility = "hidden";
-            txtName.style.visibility = "hidden";
-            txtDescription.style.visibility = "hidden";
+              
+              const toolTipBox = document.getElementById('toolTipBox');
 
-          });
-          rect.style.visibility = "hidden";
-          txtName.style.visibility = "hidden";
-          txtDescription.style.visibility = "hidden";
-    }
+              svgCircles[i].addEventListener("mouseleave", function () {
 
-    document.getElementById('svgsection').appendChild(rect);
-    document.getElementById('svgsection').appendChild(txtName);
-    document.getElementById('svgsection').appendChild(txtDescription);
+                // resets the size of the circle and reverts back the colors or keeps the colors
+                this.setAttribute('r', 9);
+                
+                if(this.style.fill == circleFillColorWhenActive)
+                {
+                  
+                  this.style.strokeWidth = '3px';
+                  this.style.stroke = circleStrokeColorWhenActive;
+
+                  this.style.fill = circleFillColorWhenActive;
+                  this.style.fillOpacity = 0.5;
+
+                }
+                else
+                {
+                  this.style.stroke = 'darkgray';  
+                  
+                }
+               
+
+              })
+
+
+              svgCircles[i].addEventListener("mousedown", function() {
+                
+                console.log(this);
+                const currentCircle = this;
+                const currentUnlockLevel = "";
+
+                unlockMemory(memoryUnlockLevel, currentCircle, currentUnlockLevel, id);
+                
+                // resets the size of the circle and reverts back the colors or keeps the colors
+                /*
+                if(this.value == 1)
+                {
+                  
+                  this.style.strokeWidth = '3px';
+                  this.style.stroke = circleStrokeColorWhenActive;
+
+                  this.style.fill = circleFillColorWhenActive;
+                  this.style.fillOpacity = 0.5;
+
+                  
+                  toolTipText.style.color = 'black';
+                  toolTipBox.style.border = 'solid black';
+                }
+                else
+                {
+                  toolTipText.style.color = 'rgb(83, 83, 83)';
+                } 
+*/
+                
+                if(this.style.fill = circleFillColorWhenInactive)
+                {
+                  
+                  this.style.strokeWidth = '3px';
+                  this.style.stroke = circleStrokeColorWhenActive;
+
+                  this.style.fill = circleFillColorWhenActive;
+                  this.style.fillOpacity = 0.5;
+
+                  
+                  toolTipText.style.color = 'black';
+                  toolTipBox.style.border = 'solid black';
+                }
+                else
+                {
+                  toolTipText.style.color = 'rgb(83, 83, 83)';
+                }
+                
+                
+                
+
+
+                
+               
+              })
+
+
+
+
+              function unlockMemory(circleUnlockLevel, circle, currentUnlocklvl, circleID)
+              {
+                
+                //console.log(circle.id);
+                console.log("circle unlock lvl: " + circleUnlockLevel);    
+                console.log("current unlock lvl:" + currentUnlocklvl);
+                console.log(circleID);
+
+
+                const circleUnlockLevelOnlyText = circleUnlockLevel.substring(0, circleUnlockLevel.length -1);
+                      const circleUnlockLevelOnlyNumber = circleUnlockLevel.substring(7, circleUnlockLevel.length);
+                      const convertToNumber = Number(circleUnlockLevelOnlyNumber);
+
+                if(circleUnlockLevel == "")
+                    {
+                      currentUnlocklvl  = "warrior_0";
+                    }
+                
+                    else if(circleUnlockLevel == "warrior_0")
+                    {
+                      currentUnlocklvl  = "vandale_0";
+                    }
+                    else 
+                    {
+                      
+
+                      const updateString = convertToNumber +1;
+                      
+
+                      currentUnlocklvl = circleUnlockLevelOnlyText + updateString;
+                      console.log("updated unlock:" + currentUnlocklvl);
+                        
+                    }
+                    console.log("current unlock lvl:" + currentUnlocklvl);
+                // the unlock itself
+                let  requiredUnlockMinusOne = convertToNumber + 1;
+                let  requiredCombine = circleUnlockLevelOnlyText + requiredUnlockMinusOne;
+                console.log(requiredCombine);
+                
+                if(currentUnlocklvl == requiredCombine)
+                  {
+                    circle.setAttribute('value', 1);
+                  }
+                  console.log("current unlock lvl:" + currentUnlocklvl);
+                  
+                  
+                  
+                }
+    
+     
+  }
 }
 
 
-function circleChange(crl)
-{
-  crl.setAttribute( 'style', 'fill: none; stroke: blue; stroke-width: 2px;' );
-}
+

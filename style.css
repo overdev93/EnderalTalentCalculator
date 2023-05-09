@@ -4,38 +4,34 @@
   background-image: url("images/warrior.gif");
   background-repeat: no-repeat;
   background-color: rgb(132,132,132);
-  position: absolute;
-
-
+  position: relative;
+  display: block;
 }
 
 rect {
-    position: absolute;
-    fill: white;
-    fill-opacity: 0.5;
+    
+  fill: rgb(184, 184, 184);
+  fill-opacity: 0.8;
 }
+
+
 circle {
   fill: red;
-  fill-opacity: 0.2;
-  stroke: darkgrey;
-  stroke-width: 3px;
+  fill-opacity: 0.15;
+  stroke: darkgray;
+  stroke-width: 2px;
 }
 
 
 
 body{
-  background-color: rgb(132,132,132);
+  background-color: rgb(132, 132, 132);
+  font-family: Verdana;
+  font-size: 13px;
   position: absolute;
 }
 
-img {
-  width: 20px;
-    margin: 5px;
-}
 
-text{
-  position: relative;
-}
 
 input {
   width: 50px;
@@ -51,5 +47,37 @@ input {
 }
 
 #dropdownClasses{
+  position: relative;
   display: block;
 }
+#classText{     
+  padding-top: 5px;
+  padding-bottom: 12px;
+
+}
+
+#container{
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+}
+
+#svgsection{
+  height: 600px;
+ 
+}
+
+
+#toolTipText{
+  padding: 15px 15px 15px 15px;
+  color: rgb(83, 83, 83);
+}
+
+#toolTipText::first-line{
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+
+
